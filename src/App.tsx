@@ -1,10 +1,13 @@
-import './App.css';
+import { store } from '@/store/store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div className="h-screen flex justify-center items-center">
-      <h1 className="text-bold">Kaizen-KR93B</h1>
-    </div>
+    <Provider store={store}>
+      <div className="w-full h-screen flex justify-center items-center">
+        <h1 className="text-bold">Kaizen-KR93B</h1>
+      </div>
+    </Provider>
   );
 }
 
