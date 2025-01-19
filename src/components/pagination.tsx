@@ -44,7 +44,7 @@ export const Pagination = ({
           variant="outline"
           size="icon"
           onClick={() => onPageChange(currentPage + 1)}
-          disabled={loading || !!error || currentPage === totalPages}
+          disabled={loading || !!error || currentPage >= totalPages}
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
@@ -52,7 +52,7 @@ export const Pagination = ({
           variant="outline"
           size="icon"
           onClick={() => onPageChange(totalPages)}
-          disabled={loading || !!error || currentPage === totalPages}
+          disabled={loading || !!error || currentPage >= totalPages}
         >
           <ChevronsRight className="h-4 w-4" />
         </Button>
