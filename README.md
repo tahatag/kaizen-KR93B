@@ -1,50 +1,105 @@
-# React + TypeScript + Vite
+# Initial task for KR93B Senior Frontend Software Engineer | Seyed Mohammad Taha Taghados
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application designed to list, search, and display details about users fetched from the [DummyJSON](https://dummyjson.com/) API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Functional Features:
 
-## Expanding the ESLint configuration
+- **List Users**: Display users in a table with the following fields:
+  - First Name
+  - Last Name
+  - Email
+  - Phone
+  - Company Name
+- **Pagination**: Fetches and displays 10 users per page, loading data on-demand as the user navigates through pages.
+- **Search**: Users can search by name to quickly locate specific entries.
+- **User Details View**: Clicking on the view button shows additional details about the user, including:
+  - First Name, Last Name, Email, Phone
+  - Company Name, Address, Department, and Title
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Technical Stack:
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Utilized for building the interface.
+- **Vite**: A fast and optimized build tool.
+- **TypeScript**: Typed codebase for improved reliability and developer experience.
+- **Redux**: State management to handle user data and application logic.
+- **Shadcn/ui and TailwindCSS**: Modern UI components for consistent styling.
+- **Biome**: Light-weight linting and formatting tool for maintaining code quality.
+- **Husky**: Pre-commit hooks ensure linting and formatting are applied before every commit.
+- **Lucide**: Beautiful & consistent icons.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation and Setup
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Prerequisites:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Node.js** (v18+ recommended)
+- **pnpm** (v8+ recommended)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Steps to Run Locally:
+
+1.  Clone the repository:
+
+    ```bash
+    git clone https://github.com/tahatag/kaizen-KR93B
+    cd kaizen-KR93B
+    ```
+
+2.  Install dependencies:
+
+    ```bash
+    pnpm install
+    ```
+
+3.  Start the development server:
+
+    ```bash
+    pnpm dev
+    ```
+
+4.  Open the app in your browser:
+
+    ```plaintext
+    http://localhost:5173
+    ```
+
+## Scripts
+
+- `dev`: Start the Vite development server.
+- `build`: Build the application for production.
+- `preview`: Preview the production build locally.
+- `lint` and `lint:fix`: Run Biome to lint _and fix_ the codebase
+- `format`: Format the codebase using Biome.
+- `check` and `check:fix`: Run biome format, lint _and fix_ the codebase.
+
+## API Details
+
+### Endpoint:
+
+- **Base URL**: `https://dummyjson.com`
+- **User List**: `/users`
+- **Example Query**:
+
+  ```bash
+  GET https://dummyjson.com/users?limit=10&skip=0
+  ```
+
+---
+
+## Folder Structure
+
+```plaintext
+.
+├── public/             # Static assets
+├── src/
+│   ├── assets/     	# Reusable assets
+│   ├── components/     # Reusable components
+│   ├── lib/            # Utilities
+│   ├── store/          # Redux slices and store setup
+│   ├── types/          # Types and interfaces
+│   └── main.tsx        # Entry point
+│	└── App.tsx         # Main app file
+├── package.json        # Project configuration
+├── tailwind.config.js  # TailwindCSS configuration
+└── vite.config.ts      # Vite configuration
 ```
