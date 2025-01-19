@@ -2,6 +2,8 @@
 
 This project is a React application designed to list, search, and display details about users fetched from the [DummyJSON](https://dummyjson.com/) API.
 
+You can visit the project's Demo [Here](https://kaizen-kr93b.vercel.app/)
+
 ## Features
 
 ### Functional Features:
